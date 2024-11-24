@@ -1,0 +1,1431 @@
+<?xml version="1.0" ?>
+<ECRHheating TempDirectory="TEMP/">
+    <VesselConfig description="Vessel configuration" name="Projects/ITERExample/VesselFileITER.txt" />
+    <MirrorConfig description="Mirror configuration" name="nofile" />
+    <MagneticConfig description="Magnetic configuration" useDB="0" name="Projects/ITERExample/woutITER.txt" format="auto" useEFITdirectly="0">
+        <DKES description="DKES data" name="DKESdata/w7x-sc1.dk" />
+        <B0 description="Magnetic field" type="at angle on magn.axis" angle="0" direction="0">5.3</B0>
+        <Mesh useSymmetry="1" useMesh="1" defaultMesh="0" defaultAccuracy="0">
+            <step description="R,Z step" unit="meter">0.015</step>
+            <angleStep description="step [degree]">2</angleStep>
+            <accuracy description="coordinate transformation accuracy [m]">0.001</accuracy>
+            <truncation description="Bmn truncation level">2e-05</truncation>
+            <extraLCMS description="Extra surface after LCMS">1.25</extraLCMS>
+        </Mesh>
+    </MagneticConfig>
+    <Deposition description="Number of points in deposition profiles">100</Deposition>
+    <FluxLabel description="Flux surface label" type="toroidal_rho" />
+    <DistributionFunction description="Type of distribution function" type="Maxwell" filename="nofile" />
+    <PlasmaSize description="Plasma size, r_max/a, and edge width, dr/a" rhoMax="1" edgeWidth="0" />
+    <PlasmaProfiles description="file with plasma profiles" filename="nofile" interpolationType="analytic" />
+    <Ne description="electron density [1e20/m^3]" Ne0="1" g="0.075" p="10" q="2.8" hole="0" width="0.32" />
+    <Te description="electron temperature [keV]" Te0="25" g="0.03" p="4" q="2" hole="-0.2" width="0.5" />
+    <Zeff description="effective charge" Zeff0="1.65" g="1" p="4" q="4" hole="0" width="0.02" />
+    <AdjointApproach description="Adjoint approach" model="lmfp (with trapped particles)" collisionOperator="momentum_conservation" />
+    <ECRHsystem description="W7-X">
+        <Beam id="1" enabled="1" name="Outboard real life 20-45 AZ- (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">3</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">170</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 8.5 90 -0.1</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 3 23 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="111" enabled="1" name="Outboard direct (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">3</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">295</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 8.5 90 -0.1</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 3 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="112" enabled="1" name="Outboard azimuthal (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">3</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">295</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 8.5 90 -0.1</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 3 25 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="121" enabled="1" name="Outboard direct (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">147</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 8.5 90 -0.1</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 3 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="122" enabled="1" name="Outboard azimuthal (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">147</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 8.5 90 -0.1</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 3 25 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="311" enabled="1" name="Bottom direct (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">140</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 6 90 -4</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 90 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="312" enabled="1" name="Bottom azimuthal (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">140</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 6 90 -4</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 100 -90 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="313" enabled="1" name="Bottom attitudinal (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">140</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 6 90 -4</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 100 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="321" enabled="1" name="Bottom direct (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">147</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 6 90 -4</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 90 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="322" enabled="1" name="Bottom azimuthal (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">147</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 6 90 -4</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 100 -90 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="323" enabled="1" name="Bottom attitudinal (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">147</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 6 90 -4</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 100 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="411" enabled="1" name="Inboard direct (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">100</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4 180 -0.1</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 175 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="412" enabled="1" name="Inboard azimuthal (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">100</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4 180 -0.1</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 170 -25 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="421" enabled="1" name="Inboard direct (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">100</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4 180 -0.1</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 175 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="422" enabled="1" name="Inboard azimuthal (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">100</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4 180 -0.1</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 170 -25 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="511" enabled="1" name="Outboard upper direct (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">3</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">295</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 7.5 90 2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> -3 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="512" enabled="1" name="Outboard upper -attitudinal (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">3</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">295</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 7.5 90 2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> -20 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="513" enabled="1" name="Outboard upper --attitudinal (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">3</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">295</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 7.5 90 2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> -50 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="514" enabled="1" name="Outboard upper ---attitudinal (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">3</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">295</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 7.5 90 2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> -65 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="515" enabled="1" name="Outboard upper azimuthal (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">3</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">295</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 7.5 90 2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> -3 20 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="516" enabled="1" name="Outboard upper azimuthal ---attitudinal (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">3</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">295</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 7.5 90 2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> -65 20 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="521" enabled="1" name="Outboard upper direct (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">147</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 7.5 90 2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 10 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="522" enabled="1" name="Outboard upper -attitudinal (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">147</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 7.5 90 2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> -20 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="523" enabled="1" name="Outboard upper --attitudinal (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">147</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 7.5 90 2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> -50 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="524" enabled="1" name="Outboard upper ---attitudinal (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">147</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 7.5 90 2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> -65 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="525" enabled="1" name="Outboard upper azimuthal (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">147</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 7.5 90 2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> -3 20 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="526" enabled="1" name="Outboard upper azimuthal ---attitudinal (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">147</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 7.5 90 2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> -65 20 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="611" enabled="1" name="Inboard lower direct (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">3</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">98</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4.25 180 -2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 177 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="612" enabled="1" name="Inboard lower +attitudinal (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">3</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">98</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4.25 180 -2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 160 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="613" enabled="1" name="Inboard lower ++attitudinal (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">3</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">98</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4.25 180 -2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 130 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="614" enabled="1" name="Inboard lower +++attitudinal (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">3</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">98</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4.25 180 -2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 127 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="615" enabled="1" name="Inboard lower azimuthal (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">3</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">98</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4.25 180 -2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 177 20 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="616" enabled="1" name="Inboard lower azimuthal +++attitudinal (X)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">3</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">X</heatingMode>
+            <frequency description="Frequency [GHz]">98</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4.25 180 -2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 127 20 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="621" enabled="1" name="Inboard lower direct (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">115</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4.25 180 -2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 177 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="622" enabled="1" name="Inboard lower +attitudinal (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">115</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4.25 180 -2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 160 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="623" enabled="1" name="Inboard lower ++attitudinal (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">115</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4.25 180 -2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 130 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="624" enabled="1" name="Inboard lower +++attitudinal (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">115</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4.25 180 -2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 127 0 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="625" enabled="1" name="Inboard lower azimuthal (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">115</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4.25 180 -2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 177 20 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+        <Beam id="626" enabled="1" name="Inboard lower azimuthal +++attitudinal (O)" defaultTracing="1">
+            <numberOfPasses description="Number of passes">10</numberOfPasses>
+            <mirrorReflectionCoeff description="Mirror reflection coefficient">1</mirrorReflectionCoeff>
+            <vesselReflectionCoeff description="Vessel reflection coefficient">1</vesselReflectionCoeff>
+            <heatingMode description="Heating Scenario">O</heatingMode>
+            <frequency description="Frequency [GHz]">115</frequency>
+            <power description="power [MW]">1</power>
+            <origin description="Origin of the beam" cartesianCoordinates="0" originIsInsidePlasma="0"> 4.25 180 -2.7</origin>
+            <direction description="Direction of the beam" targetType="W7X aiming angles"> 127 20 0</direction>
+            <quasiOpticCorrection description="Apply quasi-optic correction(1/0)">1</quasiOpticCorrection>
+            <quasiOpticModule description="Use quasi-optic module(1/0)">0</quasiOpticModule>
+            <radius description="Beam intensity half-width">0.0163</radius>
+            <radius2 description="Beam intensity half-width">0.0163</radius2>
+            <focal description="Beam focal length">1</focal>
+            <focal2 description="Beam focal length">1</focal2>
+            <astigmatismAxis description="--">0</astigmatismAxis>
+            <nCircles description="# of circles around central ray">0</nCircles>
+            <nSegments description="# of rays in circle">8</nSegments>
+            <maxPath description="max path of the beam [m]">26</maxPath>
+            <maxIteration description="max namber of RK iterations">5000</maxIteration>
+            <stopIfNoPower description="Stop tracing if the beam has no more power">1</stopIfNoPower>
+            <minStepSize description="min step size for Runge-Kutta [wave length]">1e-05</minStepSize>
+            <maxStepSize description="max step size for Runge-Kutta [wave length]">10</maxStepSize>
+            <RKaccuracy description="Runge-Kutta accuracy">1e-05</RKaccuracy>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <lineTracing description="Straight_line_tracing">0</lineTracing>
+            <dielectricTensor defaultTensor="1">
+                <maxHarm description="Dielectric_tensor_summation_limit">0</maxHarm>
+                <larmor description="Max_power_of_larmor_expansion">1</larmor>
+                <umax description="Max value of velocity for integration">7</umax>
+                <ugrid description="Number of points for integration">700</ugrid>
+                <tracing description="Dielectric_tensor_model_for_tracing">cold</tracing>
+                <hamiltonian description="Hamiltonian_for_tracing">Westerhof</hamiltonian>
+                <polarization description="Warm_tensor_for_polarization">1</polarization>
+            </dielectricTensor>
+        </Beam>
+    </ECRHsystem>
+</ECRHheating>
